@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock title%}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="h2 m-5">Login</h2>
+    
+    <form method="post" class="form-horizontal m-5">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="login">
+    </form>
+
+    <a href="{% url 'dashboard' %}" class="m-5">Back to dashboard</a>
+    <a href="{% url 'social:begin' 'github' %}" class="m-5 text-black">Login with Github</a>
+    <a href="{% url 'password_reset' %}" class="m-5 text-primary">Reset password</a>
+    <a href="{% url 'register' %}" class="m-5 text-info">Register</a>
+</div>
+{% endblock content%}
